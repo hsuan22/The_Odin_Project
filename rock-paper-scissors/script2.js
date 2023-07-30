@@ -14,8 +14,8 @@ function game(computerSelection, playerSelection) {
       'Please type "rock", "paper", or "scissors".'
     );
     playerSelection = playerSelection.toLowerCase();
-    console.log(computerSelection);
-    console.log(playerSelection);
+    // console.log(computerSelection);
+    // console.log(playerSelection);
 
     if (
       (computerSelection === "rock" && playerSelection === "scissors") ||
@@ -23,35 +23,29 @@ function game(computerSelection, playerSelection) {
       (computerSelection === "scissors" && playerSelection === "paper")
     ) {
       computerScore = ++computerScore;
-      console.log(
-        `Round ${i} Computer win.\n Computer Score: ${computerScore} | Player Score: ${playerScore}`
-      );
+      return `Round ${i} Computer win.\n Computer Score: ${computerScore} | Player Score: ${playerScore}`;
     } else if (
       (computerSelection === "scissors" && playerSelection === "rock") ||
       (computerSelection === "rock" && playerSelection === "paper") ||
       (computerSelection === "paper" && playerSelection === "scissors")
     ) {
       playerScore = ++playerScore;
-      console.log(
-        `Round ${i} You win.\n Computer Score: ${computerScore} | Player Score: ${playerScore}`
-      );
+      return `Round ${i} You win.\n Computer Score: ${computerScore} | Player Score: ${playerScore}`;
     } else {
-      console.log(
-        `Round ${i} It's a tie.\n Computer Score: ${computerScore} | Player Score: ${playerScore}`
-      );
+      return `Round ${i} It's a tie.\n Computer Score: ${computerScore} | Player Score: ${playerScore}`;
     }
   }
 
   // Final winner
   if (computerScore > playerScore) {
-    console.log("Final Winner: Computer");
+    return "Final Winner: Computer";
   } else if (computerScore < playerScore) {
-    console.log("Final Winner: You");
+    return "Final Winner: You";
   } else {
-    console.log("Let's play again.");
     computerScore = 0;
     playerScore = 0;
     game();
+    return "Let's play again.";
   }
 }
 
